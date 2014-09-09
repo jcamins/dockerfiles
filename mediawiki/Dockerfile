@@ -28,7 +28,7 @@ run	rm -rf /src/mediawiki/images
 run	ln -s /data/images /src/mediawiki/images
 
 # Run installer
-run	cd /src/mediawiki && php maintenance/install.php --conf=/data --dbpath=/data --dbtype=sqlite --pass=smwadminpass smwtest smwadmin
+run	cd /src/mediawiki && php maintenance/install.php --conf=/data --dbpath=/data --dbtype=sqlite --pass=smwadminpass --scriptpath="" smwtest smwadmin
 
 # Install SMW and add it to MW
 run	cd /src/mediawiki && curl -sS https://getcomposer.org/installer | php && php composer.phar require mediawiki/semantic-media-wiki "~2.0" && php maintenance/update.php && echo "enableSemantics( 'example.org' );" >> /data/LocalSettings.php
